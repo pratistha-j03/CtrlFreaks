@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Navbar from '../components/Navbar';
 
 // --- SVG Icon Components ---
 const MenuIcon = (props) => (
@@ -227,44 +228,19 @@ const InstantReport = () => {
 
 // --- Main App Component ---
 export default function Homepage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
   const navLinks = [
     { href: "#features", label: "Features" },
     { href: "#", label: "Leaderboard" },
-    { href: "#", label: "Community" },
+    { href: "/community", label: "Community" },
     { href: "#", label: "Training" },
-    { href: '#', label: "Track My Waste"}
+    { href: '/trackmywaste', label: "Track My Waste"}
   ];
 
   return (
     <div className="bg-gray-50 min-h-screen text-gray-800 font-sans">
       <header className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <a href="#" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-[#0f705d]">SwacchConnect</span>
-          </a>
-          <nav className="hidden md:flex space-x-8 items-center">
-            {navLinks.map((link) => (
-              <a key={link.label} href={link.href} className="text-gray-600 hover:text-[#0f705d] transition-colors duration-300">{link.label}</a>
-            ))}
-          </nav>
-          <div className="hidden md:flex items-center space-x-2">
-            <button className="text-gray-600 hover:text-[#0f705d] transition-colors duration-300">Login</button>
-            <button className="bg-[#0f705d] text-white px-4 py-2 rounded-full hover:bg-[#0c5a4a] transition-colors duration-300 shadow-lg shadow-[#0f705d]/20">Sign Up</button>
-          </div>
-          <div className="md:hidden"><button onClick={() => setIsMenuOpen(!isMenuOpen)}>{isMenuOpen ? <XIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}</button></div>
-        </div>
-        {isMenuOpen && (
-          <div className="md:hidden bg-white py-4">
-            <nav className="flex flex-col items-center space-y-4">
-              {navLinks.map((link) => ( <a key={link.label} href={link.href} className="text-gray-600 hover:text-[#0f705d] transition-colors duration-300" onClick={() => setIsMenuOpen(false)}>{link.label}</a>))}
-              <div className="flex flex-col space-y-2 w-full px-6 pt-4">
-                 <button className="w-full text-center border border-gray-300 text-gray-600 py-2 rounded-full hover:bg-gray-100 transition-colors duration-300">Login</button>
-                 <button className="w-full text-center bg-[#0f705d] text-white py-2 rounded-full hover:bg-[#0c5a4a] transition-colors duration-300">Sign Up</button>
-              </div>
-            </nav>
-          </div>
-        )}
+        <Navbar navLinks={navLinks} />
       </header>
 
       <main>
@@ -388,7 +364,7 @@ export default function Homepage() {
             </div>
             <div className="text-center text-gray-500 border-t border-gray-700 mt-8 pt-6">
                 <p>&copy; {new Date().getFullYear()} SwacchConnect. All Rights Reserved.</p>
-                <p className="text-xs mt-2">Illustration by <a href="http://www.freepik.com" className="underline hover:text-white">Freepik</a></p>
+                {/* <p className="text-xs mt-2">Illustration by <a href="http://www.freepik.com" className="underline hover:text-white">Freepik</a></p> */}
             </div>
         </div>
       </footer>
