@@ -1,15 +1,21 @@
-import express from "express";
 import dotenv from "dotenv";
-import mongoose from "mongoose";
+import express from "express";
+import connectDB from "./utils/connectDB.js";
 import cors from "cors";
-import connectDB from "./config/db.js";
 
 dotenv.config();
+const app=express();
 
-const app = express();
-
-app.use(cors());
-app.use(express.json());
+app.use(cors({
+    origin:"http://localhost:5173",
+    methods:["POST","PUT","DELETE","PATCH"],
+    credentials:true
+}));
 
 connectDB();
 
+const PORT=process.env.PORT;
+
+app.listen(PORT,()=>{
+    console.log("App is running on PORT : ",PORT);
+})
