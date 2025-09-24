@@ -91,7 +91,8 @@ const CommunityPage = () => {
         { href: "#", label: "Leaderboard" },
         { href: "/community", label: "Community" },
         { href: "#", label: "Training" },
-        { href: '/trackmywaste', label: "Track My Waste" }
+        { href: '/trackmywaste', label: "Track My Waste" },
+        { href: '/worker', label: "Worker Portal" }
     ];
 
     const tabs = [
