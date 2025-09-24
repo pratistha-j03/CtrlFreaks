@@ -3,6 +3,7 @@ import {BrowserRouter as Router,Route,Routes} from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import CitizenDashboard from "./pages/CitizenDashboard";
 import CommunityPage from "./pages/Community";
+import WorkSafelyPage from "./pages/WorkerDashboard";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route path="/" element={<Homepage/>}/>
         <Route path="/trackmywaste" element={<CitizenDashboard/>}/>
         <Route path="/community" element={<CommunityPage/>}/>
+        <Route path="/worker" element={<WorkSafelyPage/>}/>
       </Routes>
     </Router>
   );
